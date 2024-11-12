@@ -173,7 +173,7 @@ async function project(req, res) {
 async function editProject(req, res) {
   const { id } = req.params;
         const user = req.session.user;
-  const query = `SELECT * FROM projects WHERE id = '${id}'`;
+  const query = `SELECT * FROM projects WHERE id = ${id}`;
   const project = await sequelize.query(query, {
     type: QueryTypes.SELECT,
     replacements: { id },
@@ -184,13 +184,15 @@ async function editProject(req, res) {
 // Rute untuk mengedit project
 app.post("/edit-projectPost/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, start_date, end_date, description, technologies } = req.body;
+  const { project_name, start_date, end_date, description, technologies } = req.body;
+
+        const user = req.session.user;
 
 
-  const query = `UPDATE projects SET name = '${name}', star_date = '${start_date}', end_date = '${end_date}', description = '${description}', technologies = '${technologies} WHERE id = '${id}'`;
+  const query = `UPDATE projects SET name = '${project_name}', star_date = '${start_date}', end_date = '${end_date}', description = '${description}', technologies = '${technologies} WHERE id = '${id}'`;
   await sequelize.query(query, {type: QueryTypes.UPDATE})
 
-  res.redirect("/add-project")
+  res.redirect("/add-project", {user})
 })
 
 // Hapus project berdasarkan ID
