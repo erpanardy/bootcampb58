@@ -6,7 +6,7 @@ const hbs = require("hbs");
 require("./src/libs/hbs.helper")
 
 
-const config = require("./config/config.js");
+const config = require("./config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
@@ -172,21 +172,22 @@ async function project(req, res) {
 // Edit proyek berdasarkan ID
 async function editProject(req, res) {
   const { id } = req.params;
+        const user = req.session.user;
   const query = `SELECT * FROM projects WHERE id = '${id}'`;
   const project = await sequelize.query(query, {
     type: QueryTypes.SELECT,
     replacements: { id },
   });
-  res.render("edit-project", { project: project[0], id });
+  res.render("edit-project", { project: project[0], id, user });
 }
 
 // Rute untuk mengedit project
 app.post("/edit-projectPost/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, star_date, end_date, description, technologies } = req.body;
+  const { name, start_date, end_date, description, technologies } = req.body;
 
 
-  const query = `UPDATE projects SET name = '${name}', star_date = '${star_date}', end_date = '${end_date}', description = '${description}', technologies = '${technologies} WHERE id = '${id}'`;
+  const query = `UPDATE projects SET name = '${name}', star_date = '${start_date}', end_date = '${end_date}', description = '${description}', technologies = '${technologies} WHERE id = '${id}'`;
   await sequelize.query(query, {type: QueryTypes.UPDATE})
 
   res.redirect("/add-project")
@@ -203,9 +204,13 @@ async function deleteProject(req, res) {
 // Detail project berdasarkan ID
 async function detailProject(req, res) {
   const { id } = req.params;
+  
+  const user = req.session.user;
   const query = `SELECT * FROM projects WHERE id=${id}`;
-  const result = await sequelize.query(query, {type: QueryTypes.SELECT});
-  res.render("detail-project", { result: result[0] });
+  const project = await sequelize.query(query, {type: QueryTypes.SELECT});
+
+project[0].author = "muh irfan ardy"
+  res.render("detail-project", { result: project[0], user });
 }
 
 function contact (req, res) {

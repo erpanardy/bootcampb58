@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     end_date: DataTypes.DATE,
     description: DataTypes.STRING,
     technologies: DataTypes.STRING,
-    image: DataTypes.STRING
+    image: DataTypes.STRING,
+    author_id: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'projects',
