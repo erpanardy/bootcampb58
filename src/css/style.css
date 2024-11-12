@@ -1,0 +1,23 @@
+:root {
+  --warna1: #06141b;
+  --warna2: #11212d;
+  --warna3: #253745;
+  --warna4: #4a5c6a;
+  --warna5: #9babab;
+  --warna6: #ccd0cf;
+}
+
+*,
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins'sans-serif;
+}
+
+.navbar{
+  background-color: var(--warna3);
+}
+
+
+

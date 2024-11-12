@@ -1,0 +1,12 @@
+:root {
+  --warna1: #06141b;
+  --warna2: #11212d;
+  --warna3: #253745;
+  --warna4: #4a5c6a;
+  --warna5: #9babab;
+  --warna6: #ccd0cf;
+}
+
+.icon i{
+  cursor: pointer;
+}

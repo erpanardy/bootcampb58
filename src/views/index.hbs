@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HOME</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- LINK BOOTSTRP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+    >
+    <div class="container-fluid">
+  <a class="navbar-brand" href=""><img src="https://dumbways.id/assets/images/brandred.png" style="height: 30px"  alt=""></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+          {{#if user }}
+            <li class="nav-item">
+              <a class="nav-link" href="/add-project">Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/testimonial">Testimonial</a>
+            </li>
+          </ul>
+          <form class="d-flex gap-2" action="/logout" method="post">
+          <h4 style="color:white;">Welcome {{user.name}}</h4>
+            <button class="btn btn-danger" type="submit">Logout</button>
+          </form>
+          {{else}}
+          <div class="ms-auto d-flex gap-2">
+            <a href="/register" class="btn btn-danger">Register</a>
+            <a href="/login" class="btn btn-danger">Login</a>
+          </div>
+          {{/if }}
+        </div>
+      </div>
+    </nav>
+
+    <section id="home">
+      <div class="container text-center">
+        <p class="fs-2 fw-bold">{{ title }}</p>
+        <p class="text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+          dolor qui architecto aspernatur reprehenderit autem quis dolorem
+          officiis eveniet deleniti nostrum voluptas, repudiandae voluptatem
+          culpa impedit ipsum aperiam laborum quo!
+        </p>
+        <form action="/contact">
+        <button class="btn btn-danger w-25 fs-5 mt-3">Contact</button>
+        </form>
+        <a href="" class="text-decoration-none text-dark m-3">Download cv
+          <i class="fas fa-download"></i>
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="d-flex justify-content-center mt-4 gap-3">
+        <a href="#"><i class="fab fa-linkedin fa-2x text-black"></i></a>     
+        <a href="#"><i class="fab fa-instagram fa-2x text-black"></i></a>
+        <a href="#"><i class="fab fa-facebook fa-2x text-black"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x text-black"></i></a>
+      </div>
+
+      <!-- carad -->
+      <div class="card bg-light container p-3 mb-3 mt-3" style="width: 18rem">
+        <img
+          src="../asset/W.jpg"
+          class="card-img-top"
+          style="height: 18rem;"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            <h4 class="text-center">Muh Irfan Ardyansayah</h4>
+            <p class="text-center">Fullstack Developer</p>
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

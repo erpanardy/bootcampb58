@@ -1,0 +1,32 @@
+:root {
+  --warna1: #06141b;
+  --warna2: #11212d;
+  --warna3: #253745;
+  --warna4: #4a5c6a;
+  --warna5: #9babab;
+  --warna6: #ccd0cf;
+}
+
+    .form-container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 8px;
+    }
+    .form-title {
+      text-align: center;
+      font-weight: bold;
+    }
+    .form-check-label {
+      margin-right: 15px;
+    }
+
+    img{
+      display: flex;
+      height: 300px;
+    }
+
+.but{
+    width: 200px;
+  }
