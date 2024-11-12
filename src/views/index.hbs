@@ -48,7 +48,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-          {{#if user }}
             <li class="nav-item">
               <a class="nav-link" href="/add-project">Project</a>
             </li>
@@ -56,6 +55,7 @@
               <a class="nav-link" href="/testimonial">Testimonial</a>
             </li>
           </ul>
+          {{#if user }}
           <form class="d-flex gap-2" action="/logout" method="post">
           <h4 style="color:white;">Welcome {{user.name}}</h4>
             <button class="btn btn-danger" type="submit">Logout</button>
