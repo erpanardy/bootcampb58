@@ -6,7 +6,7 @@ const hbs = require("hbs");
 require("./src/libs/hbs.helper")
 
 
-const config = require("./config/config");
+const config = require("./config/config.js");
 const { Sequelize, QueryTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
